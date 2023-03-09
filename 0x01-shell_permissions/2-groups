@@ -1,2 +1,2 @@
 #!/bin/bash
-grep /etc/group
+sudo libuser-lid
