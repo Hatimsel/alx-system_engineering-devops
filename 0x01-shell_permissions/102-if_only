@@ -1,2 +1,2 @@
 #!/bin/bash
-if ([ user == betty ]) then ([ sudo chown -R guillaume hello ]) fi
+if ([ user == betty ]) then ([ sudo chown -R betty hello ]) fi
