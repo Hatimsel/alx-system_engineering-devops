@@ -1,2 +1,2 @@
 #!/bin/bash
-if ([ user == guillaume ]) then ([ sudo chown betty hello ]) fi
+chown --from=guillame betty hello
