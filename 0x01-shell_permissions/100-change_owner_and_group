@@ -1,3 +1,2 @@
 #!/bin/bash
-sudo useradd vincent
-chown vincent:staff /home/vagrant/alx-system_engineering-devops/0x01-shell_permissions 
+sudo chown vincent:staff /home/vagrant/alx-system_engineering-devops/0x01-shell_permissions 
