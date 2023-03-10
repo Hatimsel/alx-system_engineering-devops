@@ -1,0 +1,2 @@
+#!/bin/bash
+if [ user == guillaume ] ; then [ sudo chown -R betty hello ] ; fi
