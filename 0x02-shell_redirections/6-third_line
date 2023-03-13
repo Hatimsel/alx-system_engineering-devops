@@ -1,2 +1,3 @@
 #!/bin/bash
-awk 'NR==3{ print; }' /home/vagrant/alx-system_engineering-devops/0x02-shell_redirections/iacta
+cat iacta head -n 3 | tail -n 1
+
