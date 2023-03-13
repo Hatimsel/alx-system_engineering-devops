@@ -1,2 +1,2 @@
 #!/bin/bash
-tail -n 1 iacta | echo "$1"
+tail -n 1 iacta | yy p
