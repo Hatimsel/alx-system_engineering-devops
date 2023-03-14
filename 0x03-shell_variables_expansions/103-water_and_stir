@@ -1,2 +1,2 @@
 #!/bin/bash
-printf "%0\n" $(( $((5#$(echo $WATER | tr water 01234))) + $((5#$(echo $STIR | tr stir. 01234))) )) | tr 01234567 bestcholl
+echo $(( $(echo $WATER | tr '[:lower:]' '[:upper:]' | tr 'A-Z' '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ' ) + $(echo $STIR | tr '[:lower:]' '[:upper:]' | tr 'A-Z' '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ' ) )) | tr '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ' 'bestchol0123456789'
