@@ -5,7 +5,7 @@ if [ -f "school" ]
 then
 	echo "school file exists"
 	is_empty=$(wc school | cut -d ' ' -f 1)
-	if [ $is_empty -eq 0 ]
+	if [ "$is_empty" -eq 0 ]
 	then
 		echo "school file is empty"
 	else
