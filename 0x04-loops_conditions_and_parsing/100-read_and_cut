@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# Prints the content of the file /etc/passwd
+
+while read -r line
+do
+	username=$(cut -d ':' -f 1 <<< "$line")
+	userId=$(cut -d ':' -f 3 <<< "$line")
+	directory=$(cut -d ':' -f 6 <<< "$line")
+	echo "$username:$userId:$directory"
+	# echo $line
+done < /etc/passwd
