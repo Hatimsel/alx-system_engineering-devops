@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Prints the content of the current directory in a list format
+
+content=$(ls)
+for i in $content
+do
+	result=$(echo "$i" | cut -d '-' -f 2-)
+	echo "$result"
+done
