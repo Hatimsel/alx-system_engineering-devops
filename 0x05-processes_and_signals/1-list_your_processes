@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
 # Prints a list of currently running processes
 
-process=$(ps -eo user,pid,pcpu,pmem,vsz,rss,tty,stat,start,time,comm)
-echo "$process"
+ps axuf
