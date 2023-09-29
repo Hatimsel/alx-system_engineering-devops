@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Prints lines containing the bash word to get their pids
+# shellcheck disable=SC2009
+
+process=$(ps -eo user,pid,pcpu,pmem,vsz,rss,tty,stat,start,time,comm | grep bash)
+
+echo "$process"
