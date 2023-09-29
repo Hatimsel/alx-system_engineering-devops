@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Prints its own pid
+
+pid=$(ps | pgrep -f zsh)
+echo "$pid"
