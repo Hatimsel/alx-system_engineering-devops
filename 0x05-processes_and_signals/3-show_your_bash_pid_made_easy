@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 # Prints the pid along with the process name
 
-pid=$(pgrep zsh -l)
+pid=$(pgrep bash -l)
 echo "$pid"
