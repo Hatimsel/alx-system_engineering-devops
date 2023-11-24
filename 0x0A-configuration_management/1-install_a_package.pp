@@ -1,4 +1,5 @@
 # Install a package
+include stdlib
 
 
 package { 'flask':
