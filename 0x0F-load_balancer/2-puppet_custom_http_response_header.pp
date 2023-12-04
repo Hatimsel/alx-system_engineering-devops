@@ -9,10 +9,9 @@ package {'nginx':
 }
 file_line { 'http_header':
   path  => '/etc/nginx/nginx.conf',
-  line  => "add_header X-Served-By \"${hostname}\";",
+  match => 'http {',
+  line  => "http {\n\tadd_header X-Served-By \"${hostname}\";",
 }
-service { 'nginx':
-  ensure  => 'running',
-  enable => true,
-  require => [Package['nginx'], File_line['http_header']],
+exec {'run':
+  command => '/usr/sbin/service nginx restart',
 }
