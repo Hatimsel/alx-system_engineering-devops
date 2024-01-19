@@ -1,3 +1,4 @@
+# Creating the file school in the directory tmp
 
 file { '/tmp/school':
     ensure  => file,
