@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+# Not found page 404
+
+apt-get update
+apt-get -y install nginx
+ufw allow 'Nginx HTTP'
+mkdir -p /var/www/html/
+mkdir -p /etc/nginx/html
+chmod -R 755 /var/www
+echo 'Hello World!' > /var/www/html/index.html
+echo "Ceci n'est past une page" > /etc/nginx/html/404.html
+printf %s "server {
+        listen 80;
+        listen [::]:80 default_server;
+        root /var/www/html;
+        index index.html index.htm;
+
+        location /redirect_me {
+        rewrite ^ https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;
+        }
+
+        error_page 404 /404.html;
+        location /404 {
+                root /etc/nginx/html;
+		internal;
+        }
+}" > /etc/nginx/sites-available/default
+
+service nginx restart
