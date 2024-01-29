@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Adding a custom HTTP header
+sudo sed '52 i \t\tadd_header X-Served-By "$hostname" always;' /etc/nginx/sites-enabled/default
