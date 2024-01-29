@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 # Configures HAProxy so that it sends traffic to web-01 and web-02
+sudo apt-get -y install --no-install-recommends software-properties-common
+sudo add-apt-repository ppa:vbernat/haproxy-2.8
 sudo apt-get update
-sudo apt-get install haproxy -y
+sudo apt-get install haproxy=2.8.\* -y
 
 echo "backend myservers
     balance roundrobin
