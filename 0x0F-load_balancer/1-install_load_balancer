@@ -1,9 +1,12 @@
 #!/usr/bin/env bash
 # Configures HAProxy so that it sends traffic to web-01 and web-02
+sudo apt-get update
+sudo apt-get install haproxy -y
+
 echo "backend myservers
     balance roundrobin
-    server web-01 54.164.144.136:80 check
-    server web-02 18.210.33.80:80 check
+    server 373839-web-01 54.164.144.136:80 check
+    server 373839-web-02 18.210.33.80:80 check
 frontend http
     bind *:80
     mode http
