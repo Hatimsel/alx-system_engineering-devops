@@ -5,13 +5,14 @@ add-apt-repository ppa:vbernat/haproxy-2.8
 apt-get update
 apt-get install haproxy=2.8.\* -y
 
-echo "backend myservers
-    balance roundrobin
-    server 373839-web-01 54.164.144.136:80 check
-    server 373839-web-02 18.210.33.80:80 check
-frontend http
+echo -e "\nfrontend http
     bind *:80
     mode http
     default_backend myservers
+
+backend myservers
+    balance roundrobin
+    server 373839-web-01 54.164.144.136:80 check
+    server 373839-web-02 18.210.33.80:80 check
 " >>/etc/haproxy/haproxy.cfg
 systemctl restart haproxy
