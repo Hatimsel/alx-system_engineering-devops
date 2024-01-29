@@ -8,5 +8,5 @@ frontend http
     bind *:80
     mode http
     default_backend myservers
-" | sudo tee /etc/haproxy/haproxy.cfg >/dev/null
+" | sudo tee -a /etc/haproxy/haproxy.cfg >/dev/null
 sudo systemctl restart haproxy
