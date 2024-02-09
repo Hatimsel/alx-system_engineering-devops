@@ -9,4 +9,6 @@ frontend http
     mode http
     default_backend myservers
 " | sudo tee -a /etc/haproxy/haproxy.cfg >/dev/null
+if [ "$(pgrep -c haproy)" -gt 0 ]; then
+    service nginx stop
 sudo systemctl restart haproxy
