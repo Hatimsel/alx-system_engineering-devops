@@ -10,7 +10,7 @@ import sys
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
-        prin("Usage: ./file_name id")
+        print("Usage: ./file_name id")
     id = sys.argv[1]
     url = f"https://jsonplaceholder.typicode.com/users/{id}"
     req = requests.get(url).json()
@@ -26,11 +26,13 @@ if __name__ == "__main__":
                    'TASK_COMPLETED_STATUS',
                    'TASK_TITLE']
 
-    dictt = {'USER_ID': str(req.get('id')), 'USERNAME': str(req.get('username'))}
+    dictt = {'USER_ID': str(req.get('id')),
+             'USERNAME': str(req.get('username'))}
 
-    file_name = str(dictt['USER_ID']) + '.csv'
+    file_name = dictt['USER_ID'] + '.csv'
     with open(file_name, 'w') as f:
-        writer = csv.DictWriter(f, fieldnames=field_names)
+        writer = csv.DictWriter(f, fieldnames=field_names,
+                                quoting=csv.QUOTE_ALL)
 
         for task in tasks:
             dictt['TASK_COMPLETED_STATUS'] = str(task.get('completed'))
