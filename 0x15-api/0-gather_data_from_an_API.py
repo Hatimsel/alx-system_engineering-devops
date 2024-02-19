@@ -21,6 +21,6 @@ if __name__ == "__main__":
             completed_tasks.append(task.get('title'))
 
     print("Employee {} is done with tasks({}/{}):"
-        .format(req['name'], len(completed_tasks), len(tasks)))
+          .format(req['name'], len(completed_tasks), len(tasks)))
     for task in completed_tasks:
         print("\t {}".format(task))
