@@ -26,13 +26,12 @@ if __name__ == "__main__":
                    'TASK_COMPLETED_STATUS',
                    'TASK_TITLE']
 
-    dictt = {'USER_ID': str(req.get('id')), 'USERNAME': str(req.get('name'))}
+    dictt = {'USER_ID': str(req.get('id')), 'USERNAME': str(req.get('username'))}
 
     file_name = str(dictt['USER_ID']) + '.csv'
     with open(file_name, 'w') as f:
         writer = csv.DictWriter(f, fieldnames=field_names)
 
-        writer.writeheader()
         for task in tasks:
             dictt['TASK_COMPLETED_STATUS'] = str(task.get('completed'))
             dictt['TASK_TITLE'] = str(task.get('title'))
