@@ -20,4 +20,7 @@ def top_ten(subreddit):
         return
     for n in range(0, 11):
         js = req.json()['data']['children'][n]['data']['title']
-        print(js)
+        print(len(req.json()['data']['children']))
+        # print(js)
+
+top_ten(sys.argv[1])
