@@ -15,10 +15,8 @@ def number_of_subscribers(subreddit):
                 Chrome/119.0.0.0 Safari/537.36 (by/u/Hatim)"}
     url = f"https://www.reddit.com/r/{subreddit}/about.json"
     req = requests.get(url, allow_redirects=False, headers=headers)
-    if req.status_code == 404:
+    if not req:
         return 0
-    # if not req:
-    #     return 0
     js = req.json()
     js_data = js['data']
     subscribers = js_data['subscribers']
