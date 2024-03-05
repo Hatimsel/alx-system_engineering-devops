@@ -13,7 +13,9 @@ def recurse(subreddit, hot_list=[], after=''):
     """
     headers = {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64)\
                 Chrome/119.0.0.0 Safari/537.36 (by/u/Hatim)"}
-    url = f"https://www.reddit.com/r/{subreddit}/hot.json?limit=100&after={after}"
+    base_url = f"https://www.reddit.com/r/{subreddit}/hot.json"
+    url_params = f"?limit=100&after={after}"
+    url = base_url + url_params
     req = requests.get(url, allow_redirects=False, headers=headers)
     data = req.json()['data']
     after = data.get('after', None)
@@ -24,4 +26,4 @@ def recurse(subreddit, hot_list=[], after=''):
     if after:
         recurse(subreddit, hot_list, after)
 
-    return host_list
+    return hot_list
