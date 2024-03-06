@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Requests reddit api
+Requests reddit api for hot titles
 """
 import requests
 import sys
