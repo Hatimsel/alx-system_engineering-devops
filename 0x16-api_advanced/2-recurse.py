@@ -17,6 +17,8 @@ def recurse(subreddit, hot_list=[], after=''):
     url_params = f"?limit=100&after={after}"
     url = base_url + url_params
     req = requests.get(url, allow_redirects=False, headers=headers)
+    if req.status_code != 200:
+        return None
     data = req.json()['data']
     after = data.get('after', None)
     children = data.get('children', [])
