@@ -18,6 +18,6 @@ def top_ten(subreddit):
     if req.status_code != 200:
         print(None)
         return
-    for n in range(0, 11):
+    for n in range(10):
         js = req.json()['data']['children'][n]['data']['title']
         print(js)
