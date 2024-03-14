@@ -1,11 +1,5 @@
+# Fix Nginx errors
 
-file { '/etc/default/nginx':
-	ensure  => file,
-	content => inline_template("<%= File.read('/etc/default/nginx').gsub('15', '4096') %>"),
-	notify  => Service['nginx'],
-}
-service { 'nginx':
-	ensure    => running,
-	enable    => true,
-	subscribe => File['/etc/default/nginx'],
+exec { 'increase_nofile':
+  command => ["/bin/sed -i 's/15/4096/g' /etc/default/nginx", 'sudo service nginx restart'],
 }
